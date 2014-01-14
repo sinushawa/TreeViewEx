@@ -137,17 +137,17 @@
                             <Setter Property="Border.BorderBrush" TargetName="border"
                                     Value="{Binding BorderBrushSelected, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Controls:TreeViewExItem}, AncestorLevel=1}}" />
                         </Trigger>
-                        <Trigger Property="Controls:TreeViewExItem.IsHighlighted" Value="True">
-                            <Setter Property="Control.Background" TargetName="border"
-                                    Value="{Binding BackgroundHighlight, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Controls:TreeViewExItem}, AncestorLevel=1}}" />
-                            <Setter Property="Border.BorderBrush" TargetName="border"
-                                    Value="{Binding BorderHighlight, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Controls:TreeViewExItem}, AncestorLevel=1}}" />
-                        </Trigger>
                         <Trigger Property="Controls:TreeViewExItem.IsFocused" Value="True">
                             <Setter Property="Border.BorderBrush" TargetName="border"
                                     Value="{Binding BorderBrushFocused, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Controls:TreeViewExItem}, AncestorLevel=1}}" />
                             <Setter Property="Control.Background" TargetName="border"
                                     Value="{Binding BackgroundFocused, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Controls:TreeViewExItem}, AncestorLevel=1}}" />
+                        </Trigger>
+                        <Trigger Property="Controls:TreeViewExItem.IsHighlighted" Value="True">
+                            <Setter Property="Control.Background" TargetName="border"
+                                    Value="{Binding BackgroundHighlight, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Controls:TreeViewExItem}, AncestorLevel=1}}" />
+                            <Setter Property="Border.BorderBrush" TargetName="border"
+                                    Value="{Binding BorderHighlight, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Controls:TreeViewExItem}, AncestorLevel=1}}" />
                         </Trigger>
                         <MultiTrigger>
                             <MultiTrigger.Conditions>
@@ -163,6 +163,7 @@
                             <MultiTrigger.Conditions>
                                 <Condition Property="Controls:TreeViewExItem.IsFocused" Value="True" />
                                 <Condition Property="Controls:TreeViewExItem.IsSelected" Value="True" />
+                                <Condition Property="Controls:TreeViewExItem.IsHighlighted" Value="False" />
                             </MultiTrigger.Conditions>
                             <Setter Property="Border.BorderBrush" TargetName="border"
                                     Value="{Binding BorderBrushFocusedSelected, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Controls:TreeViewExItem}, AncestorLevel=1}}" />
@@ -171,12 +172,9 @@
                         </MultiTrigger>
                         <MultiDataTrigger>
                             <MultiDataTrigger.Conditions>
-                                <Condition
-                                        Binding="{Binding RelativeSource={RelativeSource AncestorType={x:Type Window}}, Path=IsActive, FallbackValue=False}"
-                                        Value="False" />
-                                <Condition
-                                        Binding="{Binding RelativeSource={RelativeSource Mode=Self}, Path=IsSelected}"
-                                        Value="True" />
+                                <Condition Binding="{Binding RelativeSource={RelativeSource AncestorType={x:Type Window}}, Path=IsActive, FallbackValue=False}" Value="False" />
+                                <Condition Binding="{Binding RelativeSource={RelativeSource Mode=Self}, Path=IsSelected}" Value="True" />
+                                <Condition Binding="{Binding RelativeSource={RelativeSource Mode=Self}, Path=IsHighlighted}" Value="False" />
                             </MultiDataTrigger.Conditions>
                             <Setter Property="Border.BorderBrush" TargetName="border"
                                     Value="{Binding BorderBrushInactive, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Controls:TreeViewExItem}, AncestorLevel=1}}" />
