@@ -92,14 +92,10 @@
                                                                         <RotateTransform Angle="180" CenterX="3" CenterY="3" />
                                                                     </Setter.Value>
                                                                 </Setter>
-                                                                <Setter Property="Shape.Fill" TargetName="ExpandPath">
-                                                                    <Setter.Value>
-                                                                        <SolidColorBrush>#FF595959</SolidColorBrush>
-                                                                    </Setter.Value>
-                                                                </Setter>
+                                                                <Setter Property="Shape.Fill" TargetName="ExpandPath" Value="#FFE6E6E6"/>
                                                                 <Setter Property="Shape.Stroke" TargetName="ExpandPath">
                                                                     <Setter.Value>
-                                                                        <SolidColorBrush>#FF262626</SolidColorBrush>
+                                                                        <SolidColorBrush>#FFE6E6E6</SolidColorBrush>
                                                                     </Setter.Value>
                                                                 </Setter>
                                                             </Trigger>
